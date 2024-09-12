@@ -22,6 +22,10 @@ public class Display {
         System.out.println("< 게임을 시작합니다. >");
     }
 
+    public void printBaseballScore(BaseballScore baseballScore) {
+        System.out.println(baseballScore);
+    }
+
     public BaseballNumbers readBaseballNumber() {
         char[] inputNumbers = scanner.next().toCharArray();
         List<BaseballNumber> baseballNumbers = new ArrayList<>();

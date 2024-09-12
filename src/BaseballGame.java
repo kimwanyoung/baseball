@@ -8,9 +8,10 @@ public class BaseballGame {
 
     public void start() {
         BaseballNumbers randomNumbers = RandomNumbersGenerator.generate();
-
         int menu = display.printMenuAndGetInput();
         display.printGameStartMessage();
-        BaseballNumbers baseballNumbers = display.readBaseballNumber();
+        BaseballNumbers userBaseballNumbers = display.readBaseballNumber();
+        BaseballScore baseballScore = randomNumbers.calculateScore(userBaseballNumbers);
+        display.printBaseballScore(baseballScore);
     }
 }

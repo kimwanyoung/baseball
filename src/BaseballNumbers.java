@@ -24,4 +24,19 @@ public class BaseballNumbers {
             throw new IllegalArgumentException("중복된 숫자는 입력할 수 없습니다.");
         }
     }
+
+    public BaseballScore calculateScore(BaseballNumbers otherNumbers) {
+        int strike = 0;
+        int ball = 0;
+        for(int i = 0; i < this.baseballNumbers.size(); i++) {
+            if(this.baseballNumbers.get(i).equals(otherNumbers.baseballNumbers.get(i))) {
+                strike++;
+                continue;
+            }
+            if(this.baseballNumbers.contains(otherNumbers.baseballNumbers.get(i))){
+                ball++;
+            }
+        }
+        return new BaseballScore(strike, ball);
+    }
 }
