@@ -8,6 +8,7 @@ public class BaseballGame {
 
     public void start() {
         BaseballNumbers randomNumbers = RandomNumbersGenerator.generate();
+
         int menu = display.printMenuAndGetInput();
         display.printGameStartMessage();
         BaseballNumbers userBaseballNumbers = display.readBaseballNumber();

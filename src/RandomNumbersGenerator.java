@@ -15,7 +15,8 @@ public class RandomNumbersGenerator {
     }
 
     private static void addUniqueNumber(List<BaseballNumber> baseballNumbers) {
-        BaseballNumber baseballNumber = new BaseballNumber((int) ((Math.random() * 9) + 1));
+        int randomNumber = (int) ((Math.random() * 9) + 1);;
+        BaseballNumber baseballNumber = new BaseballNumber(randomNumber);
         if (!baseballNumbers.contains(baseballNumber)) {
             baseballNumbers.add(baseballNumber);
         }

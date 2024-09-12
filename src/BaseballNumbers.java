@@ -9,6 +9,7 @@ public class BaseballNumbers {
 
     public BaseballNumbers(List<BaseballNumber> baseballNumbers) {
         validateDuplicateNumber(baseballNumbers);
+        validateBaseballNumbersLength(baseballNumbers);
         this.baseballNumbers = baseballNumbers;
     }
 
