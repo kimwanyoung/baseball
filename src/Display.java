@@ -26,6 +26,10 @@ public class Display {
         System.out.println(baseballScore);
     }
 
+    public void printFinishMessage() {
+        System.out.println("축하합니다 정답입니다.!");
+    }
+
     public BaseballNumbers readBaseballNumber() {
         char[] inputNumbers = scanner.next().toCharArray();
         List<BaseballNumber> baseballNumbers = new ArrayList<>();

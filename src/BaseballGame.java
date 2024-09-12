@@ -16,7 +16,10 @@ public class BaseballGame {
             BaseballScore baseballScore = randomNumbers.calculateScore(userBaseballNumbers);
             display.printBaseballScore(baseballScore);
 
-            if(baseballScore.isThreeStrike()) break;
+            if(baseballScore.isThreeStrike()) {
+                display.printFinishMessage();
+                break;
+            }
         }
     }
 }

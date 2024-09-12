@@ -1,7 +1,7 @@
 public class BaseballScore {
 
-    private int strike;
-    private int ball;
+    private final int strike;
+    private final int ball;
 
     public BaseballScore(int strike, int ball) {
         this.strike = strike;
