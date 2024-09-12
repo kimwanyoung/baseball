@@ -1,4 +1,16 @@
-public record BaseballScore(int strike, int ball) {
+public class BaseballScore {
+
+    private int strike;
+    private int ball;
+
+    public BaseballScore(int strike, int ball) {
+        this.strike = strike;
+        this.ball = ball;
+    }
+
+    public boolean isThreeStrike() {
+        return this.strike == 3;
+    }
 
     @Override
     public String toString() {

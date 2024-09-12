@@ -8,11 +8,15 @@ public class BaseballGame {
 
     public void start() {
         BaseballNumbers randomNumbers = RandomNumbersGenerator.generate();
-
         int menu = display.printMenuAndGetInput();
         display.printGameStartMessage();
-        BaseballNumbers userBaseballNumbers = display.readBaseballNumber();
-        BaseballScore baseballScore = randomNumbers.calculateScore(userBaseballNumbers);
-        display.printBaseballScore(baseballScore);
+
+        while(true) {
+            BaseballNumbers userBaseballNumbers = display.readBaseballNumber();
+            BaseballScore baseballScore = randomNumbers.calculateScore(userBaseballNumbers);
+            display.printBaseballScore(baseballScore);
+
+            if(baseballScore.isThreeStrike()) break;
+        }
     }
 }
