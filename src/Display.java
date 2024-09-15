@@ -10,12 +10,11 @@ public class Display {
         this.scanner = scanner;
     }
 
-    public int printMenuAndGetInput() {
+    public Menu printMenuAndGetInput() {
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요.");
         System.out.println("1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기");
-        System.out.println();
 
-        return scanner.nextInt();
+        return Menu.getMenuFromString(scanner.next());
     }
 
     public void printGameStartMessage() {
@@ -37,5 +36,9 @@ public class Display {
             baseballNumbers.add(new BaseballNumber(inputNumber));
         }
         return new BaseballNumbers(baseballNumbers);
+    }
+
+    public void printExitMessage() {
+        System.out.println("게임을 종료합니다.");
     }
 }

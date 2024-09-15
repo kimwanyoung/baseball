@@ -6,6 +6,6 @@ public class App {
         Display display = new Display(scanner);
 
         BaseballGame baseballGame = new BaseballGame(display);
-        baseballGame.start();
+        baseballGame.run();
     }
 }
