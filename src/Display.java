@@ -18,6 +18,7 @@ public class Display {
     }
 
     public void printGameStartMessage() {
+        System.out.println();
         System.out.println("< 게임을 시작합니다. >");
     }
 
@@ -39,11 +40,14 @@ public class Display {
     }
 
     public void printAllGameLogs(Logs logs) {
+        System.out.println();
         System.out.println("< 게임 기록 보기 >");
         for(Log log : logs.getAllLogs()) System.out.println(log);
+        System.out.println();
     }
 
     public void printExitMessage() {
+        System.out.println();
         System.out.println("< 숫자 야구 게임을 종료합니다 >");
     }
 }
