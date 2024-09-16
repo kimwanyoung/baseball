@@ -14,6 +14,6 @@ public enum Menu {
             if(menu.menuCommand.equals(input)) return menu;
         }
 
-        throw new IllegalArgumentException("1, 2, 3만 입력 가능합니다.");
+        throw new IllegalArgumentException("올바른 숫자를 입력해주세요!");
     }
 }

@@ -39,10 +39,11 @@ public class Display {
     }
 
     public void printAllGameLogs(Logs logs) {
+        System.out.println("< 게임 기록 보기 >");
         for(Log log : logs.getAllLogs()) System.out.println(log);
     }
 
     public void printExitMessage() {
-        System.out.println("게임을 종료합니다.");
+        System.out.println("< 숫자 야구 게임을 종료합니다 >");
     }
 }
