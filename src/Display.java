@@ -38,6 +38,10 @@ public class Display {
         return new BaseballNumbers(baseballNumbers);
     }
 
+    public void printAllGameLogs(Logs logs) {
+        for(Log log : logs.getAllLogs()) System.out.println(log);
+    }
+
     public void printExitMessage() {
         System.out.println("게임을 종료합니다.");
     }

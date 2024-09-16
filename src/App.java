@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -5,7 +6,9 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         Display display = new Display(scanner);
 
-        BaseballGame baseballGame = new BaseballGame(display);
+        Logs logs = new Logs(new ArrayList<>());
+
+        BaseballGame baseballGame = new BaseballGame(display, logs);
         baseballGame.run();
     }
 }
