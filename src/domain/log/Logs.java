@@ -1,4 +1,5 @@
-import java.util.Collection;
+package domain.log;
+
 import java.util.Collections;
 import java.util.List;
 

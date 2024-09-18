@@ -1,3 +1,7 @@
+package domain.numbers;
+
+import domain.level.Level;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +18,7 @@ public class RandomNumbersGenerator {
     }
 
     private static void addUniqueNumber(List<BaseballNumber> baseballNumbers) {
-        int randomNumber = (int) ((Math.random() * 9) + 1);;
+        int randomNumber = (int) ((Math.random() * 9) + 1);
         BaseballNumber baseballNumber = new BaseballNumber(randomNumber);
         if (!baseballNumbers.contains(baseballNumber)) {
             baseballNumbers.add(baseballNumber);

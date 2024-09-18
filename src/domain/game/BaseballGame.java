@@ -1,6 +1,16 @@
-public class BaseballGame {
+package domain.game;
 
-    private static final int MINIMUM_ATTEMPT_COUNT = 0;
+import domain.display.Display;
+import domain.level.Level;
+import domain.log.Log;
+import domain.log.Logs;
+import domain.numbers.BaseballNumbers;
+import domain.numbers.RandomNumbersGenerator;
+import domain.score.BaseballScore;
+
+import static constants.BaseballConstants.MINIMUM_ATTEMPT_COUNT;
+
+public class BaseballGame {
     private final Display display;
     private final Logs logs;
     private Level level = Level.THREE;
@@ -25,7 +35,7 @@ public class BaseballGame {
                 case QUERY -> queryLogs();
                 case EXIT -> exitGame();
             }
-        } while(flag);
+        } while (flag);
     }
 
     private void startGame() {
@@ -39,7 +49,7 @@ public class BaseballGame {
             display.printBaseballScore(baseballScore);
             log.increaseAttemptCount();
 
-            if (baseballScore.isThreeStrike()) {
+            if (baseballScore.isGameOver(level)) {
                 clearCurrentGameAndSave(log);
                 break;
             }

@@ -1,3 +1,13 @@
+package domain.display;
+
+import domain.game.Menu;
+import domain.level.Level;
+import domain.log.Log;
+import domain.log.Logs;
+import domain.numbers.BaseballNumber;
+import domain.numbers.BaseballNumbers;
+import domain.score.BaseballScore;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -52,7 +62,7 @@ public class Display {
     public void printAllGameLogs(Logs logs) {
         System.out.println();
         System.out.println("< 게임 기록 보기 >");
-        for(Log log : logs.getAllLogs()) System.out.println(log);
+        for (Log log : logs.getAllLogs()) System.out.println(log);
         System.out.println();
     }
 

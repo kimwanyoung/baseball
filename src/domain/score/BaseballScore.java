@@ -1,3 +1,7 @@
+package domain.score;
+
+import domain.level.Level;
+
 public class BaseballScore {
 
     private final int strike;
@@ -8,13 +12,13 @@ public class BaseballScore {
         this.ball = ball;
     }
 
-    public boolean isThreeStrike() {
-        return this.strike == 3;
+    public boolean isGameOver(Level level) {
+        return this.strike == level.getValue();
     }
 
     @Override
     public String toString() {
-        if(this.strike == 0 && this.ball == 0) return "아웃!";
+        if (this.strike == 0 && this.ball == 0) return "아웃!";
         return this.strike + "스트라이크 " + this.ball + "볼";
     }
 }

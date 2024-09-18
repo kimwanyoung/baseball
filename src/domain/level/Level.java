@@ -1,3 +1,5 @@
+package domain.level;
+
 public enum Level {
     THREE(3),
     FOUR(4),
@@ -12,15 +14,11 @@ public enum Level {
     public static Level getLevelFromStringInput(String input) {
         validateNumericInput(input);
         int parseInput = Integer.parseInt(input);
-        for(Level level: Level.values()) {
-            if(level.level == parseInput) return level;
+        for (Level level : Level.values()) {
+            if (level.level == parseInput) return level;
         }
 
         throw new IllegalArgumentException("3, 4, 5단계만 입력 가능합니다.");
-    }
-
-    public int getValue() {
-        return this.level;
     }
 
     private static void validateNumericInput(String input) {
@@ -29,6 +27,10 @@ public enum Level {
         } catch (NumberFormatException exception) {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
+    }
+
+    public int getValue() {
+        return this.level;
     }
 
     @Override

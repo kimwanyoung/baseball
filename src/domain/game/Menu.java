@@ -1,3 +1,5 @@
+package domain.game;
+
 public enum Menu {
     SET_LEVEL("0"),
     START("1"),
@@ -11,8 +13,8 @@ public enum Menu {
     }
 
     public static Menu getMenuFromString(String input) {
-        for(Menu menu : Menu.values()) {
-            if(menu.menuCommand.equals(input)) return menu;
+        for (Menu menu : Menu.values()) {
+            if (menu.menuCommand.equals(input)) return menu;
         }
 
         throw new IllegalArgumentException("올바른 숫자를 입력해주세요!");

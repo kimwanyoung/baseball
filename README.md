@@ -30,9 +30,9 @@
 ### 화면
 - 모든 입/출력을 담당
 
-**Display.java**
+**domain.display.Display.java**
 ### 야구 숫자
 - 게임에 이용되는 숫자들 생성
 - 게임에 이용되는 숫자들 검증
 
-**BaseballNumber**
+**domain.numbers.BaseballNumber**

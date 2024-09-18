@@ -1,8 +1,9 @@
+package domain.numbers;
+
+import static constants.BaseballConstants.MAX_NUMBER;
+import static constants.BaseballConstants.MIN_NUMBER;
+
 public class BaseballNumber {
-
-    private static final int MIN_NUMBER = 1;
-    private static final int MAX_NUMBER = 9;
-
     private final int baseballNumber;
 
     public BaseballNumber(char baseballNumber) {
@@ -18,7 +19,7 @@ public class BaseballNumber {
     }
 
     private void validateIsNumeric(char baseballNumber) {
-        if(!Character.isDigit(baseballNumber)) throw new IllegalArgumentException("정수만 입력가능합니다.");
+        if (!Character.isDigit(baseballNumber)) throw new IllegalArgumentException("정수만 입력가능합니다.");
     }
 
     private void validateRange(int baseballNumber) {

@@ -1,3 +1,5 @@
+package domain.log;
+
 public class Log {
     private final int step;
     private int attemptCount;
