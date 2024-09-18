@@ -4,18 +4,17 @@ import java.util.List;
 import java.util.Set;
 
 public class BaseballNumbers {
-    private static final int MAX_LENGTH = 3;
     private final List<BaseballNumber> baseballNumbers;
 
-    public BaseballNumbers(List<BaseballNumber> baseballNumbers) {
+    public BaseballNumbers(List<BaseballNumber> baseballNumbers, Level level) {
         validateDuplicateNumber(baseballNumbers);
-        validateBaseballNumbersLength(baseballNumbers);
+        validateBaseballNumbersLength(baseballNumbers, level);
         this.baseballNumbers = baseballNumbers;
     }
 
-    public void validateBaseballNumbersLength(List<BaseballNumber> baseballNumbers) {
-        if(baseballNumbers.size() != MAX_LENGTH) {
-            throw new IllegalArgumentException(MAX_LENGTH + "자리의 숫자만 입력 가능합니다.");
+    public void validateBaseballNumbersLength(List<BaseballNumber> baseballNumbers, Level level) {
+        if(baseballNumbers.size() != level.getValue()) {
+            throw new IllegalArgumentException(level.getValue() + "자리의 숫자만 입력 가능합니다.");
         }
     }
 

@@ -1,4 +1,5 @@
 public enum Menu {
+    SET_LEVEL("0"),
     START("1"),
     QUERY("2"),
     EXIT("3");

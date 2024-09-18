@@ -12,7 +12,7 @@ public class Display {
 
     public Menu printMenuAndGetInput() {
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요.");
-        System.out.println("1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기");
+        System.out.println("0. 자리수 설정 1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기");
 
         return Menu.getMenuFromString(scanner.next());
     }
@@ -28,15 +28,25 @@ public class Display {
 
     public void printFinishMessage() {
         System.out.println("축하합니다 정답입니다.!");
+        System.out.println();
     }
 
-    public BaseballNumbers readBaseballNumber() {
+    public BaseballNumbers readBaseballNumber(Level level) {
         char[] inputNumbers = scanner.next().toCharArray();
         List<BaseballNumber> baseballNumbers = new ArrayList<>();
         for (char inputNumber : inputNumbers) {
             baseballNumbers.add(new BaseballNumber(inputNumber));
         }
-        return new BaseballNumbers(baseballNumbers);
+        return new BaseballNumbers(baseballNumbers, level);
+    }
+
+    public Level readGameLevel() {
+        System.out.println();
+        System.out.println("설정하고자 하는 자리수를 입력하세요.");
+        Level level = Level.getLevelFromStringInput(scanner.next());
+        System.out.println(level + "자리수 난이도로 설정되었습니다.");
+        System.out.println();
+        return level;
     }
 
     public void printAllGameLogs(Logs logs) {

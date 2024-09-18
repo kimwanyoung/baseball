@@ -2,16 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RandomNumbersGenerator {
-    private static final int MAX_LENGTH = 3;
 
-    public static BaseballNumbers generate() {
+    public static BaseballNumbers generate(Level level) {
         List<BaseballNumber> baseballNumbers = new ArrayList<>();
 
-        while (baseballNumbers.size() < MAX_LENGTH) {
+        while (baseballNumbers.size() < level.getValue()) {
             addUniqueNumber(baseballNumbers);
         }
 
-        return new BaseballNumbers(baseballNumbers);
+        return new BaseballNumbers(baseballNumbers, level);
     }
 
     private static void addUniqueNumber(List<BaseballNumber> baseballNumbers) {
