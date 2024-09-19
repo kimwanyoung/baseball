@@ -36,3 +36,27 @@
 - 게임에 이용되는 숫자들 검증
 
 **domain.numbers.BaseballNumber**
+
+## 패키지 구성
+``` 
+constants
+└── BaseballConstants
+domain
+├── game
+│    ├── BaseballGame
+│    └── Menu
+├── numbers
+│    ├── BaseballNumber
+│    ├── BaseballNumbers
+│    └── RandomNumbersGenerator
+├── score
+│    └── BaseballScore
+├── level
+│    └── Level
+├── log
+│    ├── Log
+│    └── Logs
+└── ui
+     └── Display
+
+```
