@@ -2,10 +2,7 @@ package domain.numbers;
 
 import domain.score.BaseballScore;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BaseballNumbers {
     private final List<BaseballNumber> baseballNumbers;
@@ -27,7 +24,8 @@ public class BaseballNumbers {
     }
 
     private static void addUniqueNumber(List<BaseballNumber> baseballNumbers) {
-        int randomNumber = (int) ((Math.random() * 9) + 1);
+        Random random = new Random();
+        int randomNumber = random.nextInt(9) + 1;
         BaseballNumber baseballNumber = new BaseballNumber(randomNumber);
         if (!baseballNumbers.contains(baseballNumber)) {
             baseballNumbers.add(baseballNumber);
