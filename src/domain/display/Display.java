@@ -1,7 +1,7 @@
 package domain.display;
 
-import domain.game.Menu;
 import domain.game.Level;
+import domain.game.Menu;
 import domain.log.Log;
 import domain.log.Logs;
 import domain.numbers.BaseballNumber;
@@ -11,6 +11,9 @@ import domain.score.BaseballScore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static utils.Parser.parseCharArrToIntArr;
+import static utils.Parser.parseCharToInt;
 
 public class Display {
 
@@ -28,7 +31,6 @@ public class Display {
     }
 
     public void printGameStartMessage() {
-        System.out.println();
         System.out.println("< 게임을 시작합니다. >");
     }
 
@@ -37,37 +39,33 @@ public class Display {
     }
 
     public void printFinishMessage() {
-        System.out.println("축하합니다 정답입니다.!");
-        System.out.println();
+        System.out.println("축하합니다 정답입니다.!\n");
     }
 
     public BaseballNumbers readBaseballNumber(int size) {
-        char[] inputNumbers = scanner.next().toCharArray();
+        char[] inputCharNumbers = scanner.next().toCharArray();
+        List<Integer> parseInputValues = parseCharArrToIntArr(inputCharNumbers);
         List<BaseballNumber> baseballNumbers = new ArrayList<>();
-        for (char inputNumber : inputNumbers) {
+        for (int inputNumber : parseInputValues) {
             baseballNumbers.add(new BaseballNumber(inputNumber));
         }
         return new BaseballNumbers(baseballNumbers, size);
     }
 
     public Level readGameLevel() {
-        System.out.println();
         System.out.println("설정하고자 하는 자리수를 입력하세요.");
-        Level level = new Level(scanner.next().charAt(0));
-        System.out.println(level + "자리수 난이도로 설정되었습니다.");
-        System.out.println();
+        int parseLevel = parseCharToInt(scanner.next().charAt(0));
+        Level level = new Level(parseLevel);
+        System.out.println(level + "자리수 난이도로 설정되었습니다.\n");
         return level;
     }
 
     public void printAllGameLogs(Logs logs) {
-        System.out.println();
         System.out.println("< 게임 기록 보기 >");
         for (Log log : logs.getAllLogs()) System.out.println(log);
-        System.out.println();
     }
 
     public void printExitMessage() {
-        System.out.println();
-        System.out.println("< 숫자 야구 게임을 종료합니다 >");
+        System.out.println("< 숫자 야구 게임을 종료합니다 >\n");
     }
 }

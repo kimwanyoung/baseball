@@ -6,20 +6,9 @@ import static constants.BaseballConstants.MIN_NUMBER;
 public class BaseballNumber {
     private final int baseballNumber;
 
-    public BaseballNumber(char baseballNumber) {
-        validateIsNumeric(baseballNumber);
-        int numericValue = Character.getNumericValue(baseballNumber);
-        validateRange(numericValue);
-        this.baseballNumber = numericValue;
-    }
-
     public BaseballNumber(int baseballNumber) {
         validateRange(baseballNumber);
         this.baseballNumber = baseballNumber;
-    }
-
-    private void validateIsNumeric(char baseballNumber) {
-        if (!Character.isDigit(baseballNumber)) throw new IllegalArgumentException("정수만 입력가능합니다.");
     }
 
     private void validateRange(int baseballNumber) {
