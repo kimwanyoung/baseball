@@ -1,7 +1,7 @@
 package domain.display;
 
 import domain.game.Menu;
-import domain.level.Level;
+import domain.game.Level;
 import domain.log.Log;
 import domain.log.Logs;
 import domain.numbers.BaseballNumber;
@@ -41,19 +41,19 @@ public class Display {
         System.out.println();
     }
 
-    public BaseballNumbers readBaseballNumber(Level level) {
+    public BaseballNumbers readBaseballNumber(int size) {
         char[] inputNumbers = scanner.next().toCharArray();
         List<BaseballNumber> baseballNumbers = new ArrayList<>();
         for (char inputNumber : inputNumbers) {
             baseballNumbers.add(new BaseballNumber(inputNumber));
         }
-        return new BaseballNumbers(baseballNumbers, level);
+        return new BaseballNumbers(baseballNumbers, size);
     }
 
     public Level readGameLevel() {
         System.out.println();
         System.out.println("설정하고자 하는 자리수를 입력하세요.");
-        Level level = Level.getLevelFromStringInput(scanner.next());
+        Level level = new Level(scanner.next());
         System.out.println(level + "자리수 난이도로 설정되었습니다.");
         System.out.println();
         return level;

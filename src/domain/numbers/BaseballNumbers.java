@@ -1,6 +1,5 @@
 package domain.numbers;
 
-import domain.level.Level;
 import domain.score.BaseballScore;
 
 import java.util.ArrayList;
@@ -11,20 +10,28 @@ import java.util.Set;
 public class BaseballNumbers {
     private final List<BaseballNumber> baseballNumbers;
 
-    public BaseballNumbers(List<BaseballNumber> baseballNumbers, Level level) {
+    public BaseballNumbers(List<BaseballNumber> baseballNumbers, int size) {
         validateDuplicateNumber(baseballNumbers);
-        validateBaseballNumbersLength(baseballNumbers, level);
+        validateBaseballNumbersLength(baseballNumbers, size);
         this.baseballNumbers = baseballNumbers;
     }
 
-    public static BaseballNumbers generateRandomNumbers(Level level) {
+    public static BaseballNumbers generateRandomNumbers(int size) {
         List<BaseballNumber> baseballNumbers = new ArrayList<>();
 
-        while (baseballNumbers.size() < level.getValue()) {
+        while (baseballNumbers.size() < size) {
             addUniqueNumber(baseballNumbers);
         }
 
-        return new BaseballNumbers(baseballNumbers, level);
+        return new BaseballNumbers(baseballNumbers, size);
+    }
+
+    private static void addUniqueNumber(List<BaseballNumber> baseballNumbers) {
+        int randomNumber = (int) ((Math.random() * 9) + 1);
+        BaseballNumber baseballNumber = new BaseballNumber(randomNumber);
+        if (!baseballNumbers.contains(baseballNumber)) {
+            baseballNumbers.add(baseballNumber);
+        }
     }
 
     public BaseballScore calculateScore(BaseballNumbers otherNumbers) {
@@ -41,17 +48,10 @@ public class BaseballNumbers {
         }
         return new BaseballScore(strike, ball);
     }
-    private static void addUniqueNumber(List<BaseballNumber> baseballNumbers) {
-        int randomNumber = (int) ((Math.random() * 9) + 1);
-        BaseballNumber baseballNumber = new BaseballNumber(randomNumber);
-        if (!baseballNumbers.contains(baseballNumber)) {
-            baseballNumbers.add(baseballNumber);
-        }
-    }
 
-    private void validateBaseballNumbersLength(List<BaseballNumber> baseballNumbers, Level level) {
-        if (baseballNumbers.size() != level.getValue()) {
-            throw new IllegalArgumentException(level.getValue() + "자리의 숫자만 입력 가능합니다.");
+    private void validateBaseballNumbersLength(List<BaseballNumber> baseballNumbers, int size) {
+        if (baseballNumbers.size() != size) {
+            throw new IllegalArgumentException(size + "자리의 숫자만 입력 가능합니다.");
         }
     }
 

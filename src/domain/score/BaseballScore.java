@@ -1,6 +1,6 @@
 package domain.score;
 
-import domain.level.Level;
+import domain.game.Level;
 
 public class BaseballScore {
 

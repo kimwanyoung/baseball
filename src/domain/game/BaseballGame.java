@@ -1,7 +1,6 @@
 package domain.game;
 
 import domain.display.Display;
-import domain.level.Level;
 import domain.log.Log;
 import domain.log.Logs;
 import domain.numbers.BaseballNumbers;
@@ -12,7 +11,7 @@ import static constants.BaseballConstants.MINIMUM_ATTEMPT_COUNT;
 public class BaseballGame {
     private final Display display;
     private final Logs logs;
-    private Level level = Level.THREE;
+    private Level level = new Level(3);
     private int currentStep = 1;
     private boolean flag = true;
 
@@ -38,12 +37,13 @@ public class BaseballGame {
     }
 
     private void startGame() {
-        BaseballNumbers randomNumbers = BaseballNumbers.generateRandomNumbers(level);
+        int numberSize = this.level.getValue();
+        BaseballNumbers randomNumbers = BaseballNumbers.generateRandomNumbers(numberSize);
         Log log = new Log(currentStep, MINIMUM_ATTEMPT_COUNT);
         display.printGameStartMessage();
 
         while (true) {
-            BaseballNumbers userBaseballNumbers = display.readBaseballNumber(level);
+            BaseballNumbers userBaseballNumbers = display.readBaseballNumber(numberSize);
             BaseballScore baseballScore = randomNumbers.calculateScore(userBaseballNumbers);
             display.printBaseballScore(baseballScore);
             log.increaseAttemptCount();
