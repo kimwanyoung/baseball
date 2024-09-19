@@ -5,7 +5,6 @@ import domain.level.Level;
 import domain.log.Log;
 import domain.log.Logs;
 import domain.numbers.BaseballNumbers;
-import domain.numbers.RandomNumbersGenerator;
 import domain.score.BaseballScore;
 
 import static constants.BaseballConstants.MINIMUM_ATTEMPT_COUNT;
@@ -39,7 +38,7 @@ public class BaseballGame {
     }
 
     private void startGame() {
-        BaseballNumbers randomNumbers = RandomNumbersGenerator.generate(level);
+        BaseballNumbers randomNumbers = BaseballNumbers.generateRandomNumbers(level);
         Log log = new Log(currentStep, MINIMUM_ATTEMPT_COUNT);
         display.printGameStartMessage();
 
