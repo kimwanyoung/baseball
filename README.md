@@ -23,10 +23,8 @@
 ## 설계에 따라 객체에 책임 할당
 ### 야구 게임 
 - 게임을 실질적으로 시작한다.
-- 랜덤한 숫자를 생성한다.
-- 정답과 입력받은 수를 이용해 결과를 계산한다.
 
-**Baseball.java**
+**domain.game.BaseballGame.java**
 ### 화면
 - 모든 입/출력을 담당
 
@@ -34,13 +32,26 @@
 ### 야구 숫자
 - 게임에 이용되는 숫자들 생성
 - 게임에 이용되는 숫자들 검증
+- 랜덤한 숫자를 생성한다.
 
-**domain.numbers.BaseballNumber**
+**domain.numbers.BaseballNumber.java** <br />
+**domain.numbers.BaseballNumbers.java**
+
+### 점수
+- 정답과 입력받은 수를 이용해 결과를 계산한다.
+
+**domain.score.BaseballScore.java**
+
+### 경기 기록
+- 게임 순번과 시도 횟수를 저장한다.
+
+**domain.log.Log.java** <br />
+**domain.log.Logs.java**
 
 ## 패키지 구성
 ``` 
 constants
-└── BaseballConstants
+├── BaseballConstants
 domain
 ├── game
 │    ├── BaseballGame
@@ -58,5 +69,4 @@ domain
 │    └── Logs
 └── ui
      └── Display
-
 ```
