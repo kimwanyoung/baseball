@@ -12,8 +12,8 @@ public class BaseballScore {
         this.ball = ball;
     }
 
-    public boolean isGameOver(Level level) {
-        return this.strike == level.getValue();
+    public boolean isGameOver(int numberLength) {
+        return this.strike == numberLength;
     }
 
     @Override

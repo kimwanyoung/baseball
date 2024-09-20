@@ -36,18 +36,18 @@ public class BaseballGame {
     }
 
     private void startGame() {
-        int numberSize = this.level.getValue();
-        BaseballNumbers randomNumbers = BaseballNumbers.generateRandomNumbers(numberSize);
+        int numberLength = this.level.getValue();
+        BaseballNumbers randomNumbers = BaseballNumbers.generateRandomNumbers(numberLength);
         Log log = new Log(MINIMUM_ATTEMPT_COUNT);
         display.printGameStartMessage();
 
         while (true) {
-            BaseballNumbers userBaseballNumbers = display.readBaseballNumber(numberSize);
+            BaseballNumbers userBaseballNumbers = display.readBaseballNumber(numberLength);
             BaseballScore baseballScore = randomNumbers.calculateScore(userBaseballNumbers);
             display.printBaseballScore(baseballScore);
             log.increaseAttemptCount();
 
-            if (baseballScore.isGameOver(level)) {
+            if (baseballScore.isGameOver(numberLength)) {
                 clearCurrentGameAndSave(log);
                 break;
             }
