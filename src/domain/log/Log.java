@@ -1,11 +1,9 @@
 package domain.log;
 
 public class Log {
-    private final int step;
     private int attemptCount;
 
-    public Log(int step, int attemptCount) {
-        this.step = step;
+    public Log(int attemptCount) {
         this.attemptCount = attemptCount;
     }
 
@@ -15,6 +13,6 @@ public class Log {
 
     @Override
     public String toString() {
-        return step + "번째 게임 : 시도 횟수 - " + attemptCount;
+        return "시도 횟수 - " + attemptCount;
     }
 }

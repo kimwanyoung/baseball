@@ -12,7 +12,6 @@ public class BaseballGame {
     private final Display display;
     private final Logs logs;
     private Level level = new Level(3);
-    private int currentStep = 1;
     private boolean flag = true;
 
     public BaseballGame(Display display, Logs logs) {
@@ -39,7 +38,7 @@ public class BaseballGame {
     private void startGame() {
         int numberSize = this.level.getValue();
         BaseballNumbers randomNumbers = BaseballNumbers.generateRandomNumbers(numberSize);
-        Log log = new Log(currentStep, MINIMUM_ATTEMPT_COUNT);
+        Log log = new Log(MINIMUM_ATTEMPT_COUNT);
         display.printGameStartMessage();
 
         while (true) {
@@ -62,7 +61,6 @@ public class BaseballGame {
     private void clearCurrentGameAndSave(Log log) {
         display.printFinishMessage();
         logs.save(log);
-        this.currentStep++;
     }
 
     private void queryLogs() {

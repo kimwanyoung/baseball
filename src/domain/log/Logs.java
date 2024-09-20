@@ -1,7 +1,9 @@
 package domain.log;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Logs {
     private final List<Log> logs;
@@ -14,7 +16,11 @@ public class Logs {
         this.logs.add(log);
     }
 
-    public List<Log> getAllLogs() {
-        return Collections.unmodifiableList(logs);
+    public List<String> getLogsPrintFormat() {
+        List<String> logsStringFormat = new ArrayList<>();
+        for(int i = 0; i < logs.size(); i++) {
+            logsStringFormat.add((i + 1) + "번째 게임 : " + logs.get(i));
+        }
+        return logsStringFormat;
     }
 }
