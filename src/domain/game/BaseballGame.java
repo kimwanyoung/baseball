@@ -11,7 +11,7 @@ import static constants.BaseballConstants.MINIMUM_ATTEMPT_COUNT;
 public class BaseballGame {
     private final Display display;
     private final Logs logs;
-    private Level level = new Level(3);
+    private Level level = Level.generateDefaultLevel();
     private boolean flag = true;
 
     public BaseballGame(Display display, Logs logs) {

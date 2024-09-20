@@ -12,6 +12,10 @@ public class Level {
         this.level = level;
     }
 
+    public static Level generateDefaultLevel() {
+        return new Level(3);
+    }
+
     public int getValue() {
         return this.level;
     }
