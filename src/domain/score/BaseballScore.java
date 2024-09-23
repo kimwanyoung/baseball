@@ -1,7 +1,5 @@
 package domain.score;
 
-import domain.game.Level;
-
 public class BaseballScore {
 
     private final int strike;

@@ -1,9 +1,7 @@
 package domain.log;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Logs {
     private final List<Log> logs;
