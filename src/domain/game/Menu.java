@@ -1,5 +1,7 @@
 package domain.game;
 
+import java.util.Arrays;
+
 public enum Menu {
     SET_LEVEL("0"),
     START("1"),
@@ -13,10 +15,9 @@ public enum Menu {
     }
 
     public static Menu getMenuFromString(String input) {
-        for (Menu menu : Menu.values()) {
-            if (menu.menuCommand.equals(input)) return menu;
-        }
-
-        throw new IllegalArgumentException("올바른 숫자를 입력해주세요!");
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.menuCommand.equals(input))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("올바른 숫자를 입력해주세요!"));
     }
 }
