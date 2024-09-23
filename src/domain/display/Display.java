@@ -2,13 +2,11 @@ package domain.display;
 
 import domain.game.Level;
 import domain.game.Menu;
-import domain.log.Log;
 import domain.log.Logs;
 import domain.numbers.BaseballNumber;
 import domain.numbers.BaseballNumbers;
 import domain.score.BaseballScore;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,10 +43,9 @@ public class Display {
     public BaseballNumbers readBaseballNumber(int size) {
         char[] inputCharNumbers = scanner.next().toCharArray();
         List<Integer> parseInputValues = parseCharArrToIntArr(inputCharNumbers);
-        List<BaseballNumber> baseballNumbers = new ArrayList<>();
-        for (int inputNumber : parseInputValues) {
-            baseballNumbers.add(new BaseballNumber(inputNumber));
-        }
+        List<BaseballNumber> baseballNumbers = parseInputValues.stream()
+                .map(BaseballNumber::new)
+                .toList();
         return new BaseballNumbers(baseballNumbers, size);
     }
 
@@ -62,7 +59,7 @@ public class Display {
 
     public void printAllGameLogs(Logs logs) {
         System.out.println("< 게임 기록 보기 >");
-        for (String logStringFormat : logs.getLogsPrintFormat()) System.out.println(logStringFormat);
+        logs.getLogsPrintFormat().forEach(System.out::println);
     }
 
     public void printExitMessage() {
